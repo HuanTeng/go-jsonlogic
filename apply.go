@@ -7,8 +7,7 @@ import (
 const (
 	defaultAggregator = "_default_aggregator"
 	quickVarPrefix    = '$'
-	quickVarAccessOp  = "_default_access"
-	quickVarValueOp   = "_default_compare"
+	quickVarOp        = "_quick_access"
 )
 
 func (jl *jsonLogic) apply(rule RuleType, data DataType) (result DataType, err error) {
@@ -23,16 +22,11 @@ func (jl *jsonLogic) apply(rule RuleType, data DataType) (result DataType, err e
 					result, err = jl.applyOperator(op, params, data)
 				} else {
 					if len(opName) > 1 && opName[0] == quickVarPrefix {
-						varOp, ok1 := jl.ops[quickVarAccessOp]
-						cmpOp, ok2 := jl.ops[quickVarValueOp]
-						if !ok1 || !ok2 {
+						varOp, ok := jl.ops[quickVarOp]
+						if !ok {
 							return nil, fmt.Errorf("quick access op not defined")
 						}
-						result, err = jl.applyOperator(varOp, opName[1:], data)
-						if err != nil {
-							return nil, err
-						}
-						result, err = jl.applyOperator(cmpOp, []interface{}{result, params}, data)
+						result, err = jl.applyOperator(varOp, []interface{}{opName[1:], params}, data)
 					} else {
 						return nil, fmt.Errorf("operator %s not found", opName)
 					}

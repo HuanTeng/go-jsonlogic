@@ -6,6 +6,7 @@ import (
 )
 
 type opVar struct{}
+type opVarStrictEqual struct{}
 
 func (opVar) Operate(applier LogicApplier, data DataType, params []RuleType) (DataType, error) {
 	// No params, return whole data
@@ -63,4 +64,16 @@ func (opVar) Operate(applier LogicApplier, data DataType, params []RuleType) (Da
 	}
 
 	return d, nil
+}
+
+func (opVarStrictEqual) Operate(applier LogicApplier, data DataType, params []RuleType) (DataType, error) {
+	if len(params) < 2 {
+		return nil, nil
+	}
+	result, err := (opVar{}).Operate(applier, data, []RuleType{params[0]})
+	if err != nil {
+		return nil, err
+	}
+	result, err = (opStrictEqual{}).Operate(applier, data, []RuleType{result, params[1]})
+	return result, err
 }

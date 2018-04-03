@@ -114,8 +114,7 @@ func TestErrorCases(t *testing.T) {
 	jl := jsonlogic.NewJSONLogic()
 
 	jl.AddOperation("_default_aggregator", nil)
-	jl.AddOperation("_default_access", nil)
-	jl.AddOperation("_default_compare", nil)
+	jl.AddOperation("_quick_access", nil)
 
 	for _, c := range errorCases {
 		if err := json.Unmarshal([]byte(c.rule), &rule); err != nil {

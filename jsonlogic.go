@@ -57,8 +57,7 @@ func NewJSONLogic() LogicApplier {
 	jl.mustAddOperation("and", opAnd{})
 
 	jl.mustAddOperation("_default_aggregator", opAndBool{})
-	jl.mustAddOperation("_default_access", opVar{})
-	jl.mustAddOperation("_default_compare", opStrictEqual{})
+	jl.mustAddOperation("_quick_access", opVarStrictEqual{})
 
 	return jl
 }
