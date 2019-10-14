@@ -91,20 +91,20 @@ func runTestCases(cases []TestCase, t *testing.T) {
 	var rule, data interface{}
 
 	for _, c := range cases {
-		if err := json.Unmarshal([]byte(c.rule), &rule); err != nil {
-			t.Errorf("Case %s: rule error: %s", c.name, err)
-		}
-		if err := json.Unmarshal([]byte(c.data), &data); err != nil {
-			t.Errorf("Case %s: data error: %s", c.name, err)
-		}
-		got, err := jsonlogic.Apply(rule, data)
-		if err != nil {
-			t.Errorf("Case %s: apply error: %s", c.name, err)
-		} else if !reflect.DeepEqual(got, c.expect) {
-			t.Errorf("Case %s: expect %s got %s", c.name,
-				spew.Sdump(c.expect), spew.Sdump(got),
-			)
-		}
+		t.Run(c.name, func(t *testing.T) {
+			if err := json.Unmarshal([]byte(c.rule), &rule); err != nil {
+				t.Errorf("rule error: %s", err)
+			}
+			if err := json.Unmarshal([]byte(c.data), &data); err != nil {
+				t.Errorf("data error: %s", err)
+			}
+			got, err := jsonlogic.Apply(rule, data)
+			if err != nil {
+				t.Errorf("apply error: %s", err)
+			} else if !reflect.DeepEqual(got, c.expect) {
+				t.Errorf("expect %s got %s", spew.Sdump(c.expect), spew.Sdump(got))
+			}
+		})
 	}
 }
 

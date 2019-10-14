@@ -133,6 +133,9 @@ func (opGreater) Operate(applier LogicApplier, data DataType, params []RuleType)
 	if err != nil {
 		return nil, err
 	}
+	if ret == nil {
+		return false, nil
+	}
 	return !math.IsNaN(ret.(float64)), nil
 }
 
@@ -145,6 +148,9 @@ func (opGreaterEqual) Operate(applier LogicApplier, data DataType, params []Rule
 	})
 	if err != nil {
 		return nil, err
+	}
+	if ret == nil {
+		return false, nil
 	}
 	return !math.IsNaN(ret.(float64)), nil
 }
@@ -159,6 +165,9 @@ func (opLess) Operate(applier LogicApplier, data DataType, params []RuleType) (D
 	if err != nil {
 		return nil, err
 	}
+	if ret == nil {
+		return false, nil
+	}
 	return !math.IsNaN(ret.(float64)), nil
 }
 
@@ -171,6 +180,9 @@ func (opLessEqual) Operate(applier LogicApplier, data DataType, params []RuleTyp
 	})
 	if err != nil {
 		return nil, err
+	}
+	if ret == nil {
+		return false, nil
 	}
 	return !math.IsNaN(ret.(float64)), nil
 }

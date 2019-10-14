@@ -72,7 +72,13 @@ var numTestCases = []TestCase{
 		expect: true,
 	},
 	{
-		name:   ">",
+		name:   "> error input",
+		rule:   `{">": ["error", 1, 0, -1]}`,
+		data:   `{}`,
+		expect: false,
+	},
+	{
+		name:   "not >",
 		rule:   `{">": [2, 2, 1, 0]}`,
 		data:   `{}`,
 		expect: false,
@@ -84,7 +90,7 @@ var numTestCases = []TestCase{
 		expect: true,
 	},
 	{
-		name:   ">=",
+		name:   "not >=",
 		rule:   `{">=": [1, 2, 1, 0]}`,
 		data:   `{}`,
 		expect: false,
@@ -96,7 +102,7 @@ var numTestCases = []TestCase{
 		expect: true,
 	},
 	{
-		name:   "<",
+		name:   "not <",
 		rule:   `{"<": [1, 2, 2, 4]}`,
 		data:   `{}`,
 		expect: false,
@@ -108,7 +114,7 @@ var numTestCases = []TestCase{
 		expect: true,
 	},
 	{
-		name:   "<=",
+		name:   "not <=",
 		rule:   `{"<=": [1, 2, 1, 4]}`,
 		data:   `{}`,
 		expect: false,
