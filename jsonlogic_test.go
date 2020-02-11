@@ -6,8 +6,6 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
-
 	jsonlogic "github.com/HuanTeng/go-jsonlogic"
 )
 
@@ -102,7 +100,7 @@ func runTestCases(cases []TestCase, t *testing.T) {
 			if err != nil {
 				t.Errorf("apply error: %s", err)
 			} else if !reflect.DeepEqual(got, c.expect) {
-				t.Errorf("expect %s got %s", spew.Sdump(c.expect), spew.Sdump(got))
+				t.Errorf("expect %+v got %+v", c.expect, got)
 			}
 		})
 	}
@@ -125,9 +123,7 @@ func TestErrorCases(t *testing.T) {
 		}
 		_, err := jl.Apply(rule, data)
 		if !reflect.DeepEqual(err, c.expect) {
-			t.Errorf("Case %s: expect error %s got %s", c.name,
-				spew.Sdump(c.expect), spew.Sdump(err),
-			)
+			t.Errorf("Case %s: expect error %+v got %+v", c.name, c.expect, err)
 		}
 	}
 }
