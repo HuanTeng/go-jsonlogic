@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	jsonlogic "github.com/HuanTeng/go-jsonlogic"
+	jsonlogic "github.com/ShankarParimi/go-jsonlogic"
 )
 
 type TestCase struct {
