@@ -15,3 +15,7 @@ func Apply(rule interface{}, data interface{}) (interface{}, error) {
 func AddOperation(symbol string, op Operator) error {
 	return defaultJL.AddOperation(symbol, op)
 }
+
+func Validate(rule interface{}) error {
+	return defaultJL.Validate(rule)
+}
