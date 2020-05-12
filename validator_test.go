@@ -3,7 +3,6 @@ package jsonlogic_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/HuanTeng/go-jsonlogic"
 	"reflect"
 	"testing"
 )
