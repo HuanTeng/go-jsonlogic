@@ -8,6 +8,8 @@ Golang implementation of JsonLogic (jsonlogic.com), which is an abstract syntax 
 
 Custom operators are supported.
 
+Rules Validation is supported.
+
 ## Example
 
 ```golang
