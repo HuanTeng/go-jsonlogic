@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/ShankarParimi/go-jsonlogic"
+	"github.com/HuanTeng/go-jsonlogic"
 )
 
 func ExampleApply() {
