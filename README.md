@@ -1,8 +1,9 @@
 # go-jsonlogic
 
-[![Travis CI](https://travis-ci.org/ShankarParimi/go-jsonlogic.svg?branch=master)](https://travis-ci.org/ShankarParimi/go-jsonlogic)
-[![Go Report Card](https://goreportcard.com/badge/github.com/HuanTeng/go-jsonlogic)](https://goreportcard.com/report/github.com/ShankarParimi/go-jsonlogic)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f0b5e62e6134373baecd36e346bdcb1)](https://www.codacy.com/manual/ShankarParimi/go-jsonlogic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ShankarParimi/go-jsonlogic&amp;utm_campaign=Badge_Grade)
+[![Travis CI](https://travis-ci.org/HuanTeng/go-jsonlogic.svg?branch=master)](https://travis-ci.org/HuanTeng/go-jsonlogic)
+[![Go Report Card](https://goreportcard.com/badge/github.com/HuanTeng/go-jsonlogic)](https://goreportcard.com/report/github.com/HuanTeng/go-jsonlogic)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e9df51b227c47b6b903a2a78ae62072)](https://www.codacy.com/app/the729/go-jsonlogic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HuanTeng/go-jsonlogic&amp;utm_campaign=Badge_Grade)
+
 Golang implementation of JsonLogic (jsonlogic.com), which is an abstract syntax tree (AST) represented as a JSON object. 
 
 Custom operators are supported.
