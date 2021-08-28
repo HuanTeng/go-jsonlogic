@@ -4,6 +4,7 @@ package jsonlogic
 type LogicApplier interface {
 	Apply(rule interface{}, data interface{}) (interface{}, error)
 	AddOperation(symbol string, op Operator) error
+	Validate(rule interface{}) error
 }
 
 // RuleType is the type of rule

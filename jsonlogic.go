@@ -21,6 +21,10 @@ func (jl *jsonLogic) AddOperation(symbol string, op Operator) error {
 	return nil
 }
 
+func (jl *jsonLogic) Validate(rule interface{}) error {
+	return jl.validate(rule)
+}
+
 func (jl *jsonLogic) mustAddOperation(symbol string, op Operator) {
 	if err := jl.AddOperation(symbol, op); err != nil {
 		log.Fatal(err)
